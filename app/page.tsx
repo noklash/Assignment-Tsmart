@@ -5,7 +5,7 @@ import Image from 'next/image'
 // import AnimatedText from '@/components/Animation'
 import AnimatedHome from '@/components/Animation'
 
-const page = ({}) => {
+const Page = ({}) => {
   return (
     <div className='p-6 flex flex-col home'>
           <div className='flex flex-col mt-8 py-6 justify-center mx-auto'>
@@ -30,4 +30,4 @@ const page = ({}) => {
   )
 }
 
-export default page
+export default Page

@@ -1,6 +1,6 @@
 import PostCard from "@/components/PostCard";
 import Link from "next/link";
-// import PostCard from '@/components/PostCard'
+
 
 type Props = {
     params: {
@@ -8,7 +8,7 @@ type Props = {
     }
 }
 
-const page = async ({ params}: Props) => {
+const Page = async ({ params}: Props) => {
 const realP = params.id
 
 const newEmail = realP.replace('%40', '@');
@@ -57,4 +57,4 @@ function removeSubstring(str: string, substring: string) {
   )
 }
 
-export default page
+export default Page

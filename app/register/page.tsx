@@ -15,7 +15,7 @@ type Props = {
     password: string;
 }
 
-const page = ({username, password}: Props) => {
+const Page = ({username, password}: Props) => {
     const type = "register"
     const [submitting, setSubmitting] = useState<boolean>(false);
     const [register, setRegister] = useState<FormState>({
@@ -84,4 +84,4 @@ const page = ({username, password}: Props) => {
   )
 }
 
-export default page
+export default Page

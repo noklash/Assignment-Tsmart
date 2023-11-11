@@ -19,7 +19,7 @@ interface Post {
   
   }
 
-const page = ({ params, username, post, base64str }: Props) => {
+const Page = ({ params, username, post, base64str }: Props) => {
     const realP = params.id
     const user = realP.replace('%40', '@');
 
@@ -33,7 +33,7 @@ const page = ({ params, username, post, base64str }: Props) => {
       }
 
       fetchPosts();
-    }, []);
+    }, [posts]);
 
   return (
     <div>
@@ -41,7 +41,7 @@ const page = ({ params, username, post, base64str }: Props) => {
         {
             posts.length > 0 &&
             posts?.map(({ node }: {node: Post}) => (
-                <div className='my-4'>
+                <div className='my-4' key={`${node?.username} + ${1}`}>
                     <PostCard
                         key={`${node?.username} + ${1}`}
                         username={node?.username}
@@ -55,4 +55,4 @@ const page = ({ params, username, post, base64str }: Props) => {
   )
 }
 
-export default page
+export default Page
