@@ -8,6 +8,7 @@ import Button from '@/components/Button';
 
 
 
+
 type FormState = {
     post: string;
     base64str: string;
@@ -24,7 +25,8 @@ type Props = {
 
 
 
-const  PostCreate = ({params, post, base64str}: Props)  => {
+
+const  Page = ({params, post, base64str}: Props)  => {
   const router = useRouter();
   const realP = params.id
   const type = "create"
@@ -65,7 +67,8 @@ const  PostCreate = ({params, post, base64str}: Props)  => {
     try {
         const result = await createPost(username, form.post, form.base64str);
         if(result){
-            router.push(`/${realP}/PostCreate`)
+          
+            router.push(`/${realP}/Page`)
         }
     } catch (error){
         console.error
@@ -129,4 +132,5 @@ const  PostCreate = ({params, post, base64str}: Props)  => {
   );
 }
 
-export default  PostCreate
+
+export default  Page
