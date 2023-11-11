@@ -37,12 +37,12 @@ function removeSubstring(str: string, substring: string) {
     <div className='flex flex-col m-4'>
 
         <Link href={`/${realP}/create-post`} className="capitalize border-black text-black  w-32 underline"> new moment</Link>
-        <h3 className="capitalize text-2xl text center">Here's your moment <span className="font-bold text-2xl">{updatedUsername}</span></h3>
+        <h3 className="capitalize text-2xl text center">Here&apos;s your moment <span className="font-bold text-2xl">{updatedUsername}</span></h3>
 
         <section className="md:flex gap-8">
             {
                 moments.map((moment, i) => (
-                    <div className="my-6 ">
+                    <div className="my-6 " key={`${moment?.username} + ${1}`}>
                         <PostCard
                             key={`${moment?.username} + ${1}`}
                             username={moment?.username}
