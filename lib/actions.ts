@@ -5,25 +5,11 @@ export type PostForm = {
     base64Url: string
 }
 
-const serverUrl = "gggg"
+// const serverUrl = "http://localhost:3000"
 
 
-export const uploadImage = async (imagePath: string) => {
-    try {
-        const response = await fetch(`${serverUrl}/api/upload`, {
-            method: "POST",
-            body: JSON.stringify({
-                path: imagePath,
-            }),
-        });
-        return response.json();
-    } catch (err) {
-        throw err
-    }
-}
 
-
-export async function loginUser(username: string, password: string): Promise<void> {
+export async function loginUser(username: string, password: string) {
   const response = await axios.post('https://assignment-api-spxd.onrender.com/api/login', {
     username,
     password,
@@ -32,27 +18,18 @@ export async function loginUser(username: string, password: string): Promise<voi
  console.log(response)
   // Handle the response
   if(response.status === 200){
+    const session = {
+        email: username
+    }
     
+    return session;
     // push router to home page
   }else{
     // response error
   }
 }
 
-// export async function signUp(username: string, password: string): Promise<void> {
-//   const response = await axios.post('https://assignment-api-spxd.onrender.com/api/register', {
-//     username,
-//     password,
-//   });
-//   console.log(response)
-//   // Handle the response
-//   if(response.status === 200){
-//     // push router to home page
-//     console.log("it was registered")
-//   }else {
-//     // handle post creation error
-//   }
-// }
+
 
 export const registerUser = async (username: string, password:string) => {
     try {
@@ -67,8 +44,11 @@ export const registerUser = async (username: string, password:string) => {
   
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
-        return data; // or handle the response as needed
+        const session = {
+            email: username
+        }
+        
+        return session; // or handle the response as needed
       } else {
         throw new Error('Registration failed');
       }
@@ -78,12 +58,11 @@ export const registerUser = async (username: string, password:string) => {
     }
   };
 
-export async function createPost(username: string, post: string, base64str: string): Promise<void> {
-    const imageUrl = await uploadImage(base64str)
+export async function createPost(username: string, post: string, base64str: string) {
     const variables = {
         "username": username,
         "post": post,
-        "base64str": imageUrl
+        "base64str": base64str
 
     }
     
@@ -91,18 +70,18 @@ export async function createPost(username: string, post: string, base64str: stri
   
     // Handle the response
     if(response.status === 200){
-        // push router to home page
+        return response
       }else{
         // response error
       }
   }
   
-  export async function getPostsByUser(email: string): Promise<Post[]> {
+  export async function getPostsByUser(email: string) {
     const response = await axios.get(`https://assignment-api-spxd.onrender.com/api/posts/${email}`);
   
     // Handle the response
     if(response.status === 200){
-        // push router to home page
+        return response
       }else{
         // response error
       }

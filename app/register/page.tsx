@@ -2,6 +2,7 @@
 import React, {useState, ChangeEvent, FormEvent} from 'react'
 import FormField from '@/components/FormField'
 import { registerUser } from '@/lib/actions';
+import { useRouter } from 'next/navigation';
 
 
 interface  FormState  {
@@ -23,14 +24,20 @@ const page = ({username, password}: Props) => {
         // confirmPassword: confirmPassword || ""
     })
 
+    const router = useRouter()
+
     const handleStateChange = (fieldName: keyof FormState, value: string) => {
         setRegister((prevForm) => ({ ...prevForm, [fieldName]: value}))
       }
 
     const handleFormSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        await registerUser(register.username, register.password)
-
+       const res =  await registerUser(register.username, register.password)
+        if(res.email){
+            console.log(res.email)
+            router.push(`/${res.email}`) 
+        }
+        // return res.email
     }
 
   return (
@@ -57,7 +64,7 @@ const page = ({username, password}: Props) => {
 
 
 
-            <button className='text-white bg-red-700 px-5 py-3 my-6 rounded'>
+            <button className='text-white bg-blue-700 px-5 py-3 my-6 rounded w-full'>
                 submit
             </button>
 

@@ -2,7 +2,7 @@
 import React, {useState, ChangeEvent, FormEvent} from 'react'
 import FormField from '@/components/FormField'
 import { loginUser } from '@/lib/actions';
-
+import { useRouter } from 'next/navigation';
 
 interface  FormState  {
     username: string;
@@ -17,7 +17,9 @@ type Props = {
 }
 
 
-const Page = ({username, password}: Props) => {
+const Login = ({username, password}: Props) => {
+    const router = useRouter()
+    
     const [login, setLogin] = useState<FormState>({
         username: username || "",
         password: password || "",
@@ -30,8 +32,11 @@ const Page = ({username, password}: Props) => {
 
     const handleFormSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        await loginUser(login.username, login.password)
-
+        const res = await loginUser(login.username, login.password)
+        if(res.email){
+            console.log(res.email)
+            router.push(`/${res.email}`) 
+        }
     }
 
   return (
@@ -67,4 +72,4 @@ const Page = ({username, password}: Props) => {
   )
 }
 
-export default Page
+export default Login
