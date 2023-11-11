@@ -5,8 +5,6 @@ export type PostForm = {
     base64Url: string
 }
 
-// const serverUrl = "http://localhost:3000"
-
 
 
 export async function loginUser(username: string, password: string) {
@@ -16,16 +14,12 @@ export async function loginUser(username: string, password: string) {
   });
 
  console.log(response)
-  // Handle the response
   if(response.status === 200){
     const session = {
         email: username
     }
     
     return session;
-    // push router to home page
-  }else{
-    // response error
   }
 }
 
@@ -68,21 +62,17 @@ export async function createPost(username: string, post: string, base64str: stri
     
     const response = await axios.post('https://assignment-api-spxd.onrender.com/api/createpost', variables);
   
-    // Handle the response
+   
     if(response.status === 200){
         return response
-      }else{
-        // response error
       }
   }
   
   export async function getPostsByUser(email: string) {
     const response = await axios.get(`https://assignment-api-spxd.onrender.com/api/posts/${email}`);
   
-    // Handle the response
+    
     if(response.status === 200){
         return response
-      }else{
-        // response error
       }
   }

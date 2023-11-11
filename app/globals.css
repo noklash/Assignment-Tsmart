@@ -68,3 +68,11 @@ body {
 .form_image-input {
   @apply absolute z-30 w-full opacity-0 h-full cursor-pointer;
 }
+
+.home{
+  background-image: url('/homebg.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85;
+  height: 100vh;
+}

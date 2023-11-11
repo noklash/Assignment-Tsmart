@@ -1,16 +1,9 @@
-"use client"
-import { useRouter } from 'next/router';
-import { useState, useEffect, ChangeEvent, FormEvent } from "react"
-import { createPost, getPostsByUser } from '@/lib/actions';
-import FormField from './FormField';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
 
-type FormState = {
-    post: string;
-    base64str: string;
-}
+
 
  interface Post {
   username: string;
@@ -25,26 +18,26 @@ type FormState = {
 
 const PostCard = ({username, post, base64str}: Post) => {
   return (
-    <div className='flexCenter flex-col rounded-2xl drop-shadow-card text-black'>
-      <Link href="#" className='flexCenter group relative w-full h-full flex flex-col'>
-          <div className='flex gap-2'>
+    <div className='flexCenter  flex-col rounded-2xl drop-shadow text-black shadow-lg shadow-black'>
+      <Link href="#" className='flexCenter group relative w-full flex flex-col'>
+          <div className='flex p-2'>
             <Image 
-              src="/userImage"
-              width={24}
-              height={24}
-              className='rounded-full mr-auto'
+              src="/userImage.png"
+              width={45}
+              height={45}
+              className='rounded-full flexStart'
               alt="profile image"
               />
-            <span className='font-bold'>{username}</span>
+            <span className='font-bold py-2 px-6'>{username}</span>
           </div>
         <div>
-          <p className='w-full'>{post}</p>
+          <p className='px-6'>{post}</p>
         </div>
         <Image 
           src={base64str}
-          width={450}
-          height={450}
-          className='w-full h-full object-cover rounded-2xl'
+          width={250}
+          height={250}
+          className='w-full h-full object-cover rounded-3xl p-4'
           alt='post image'
           />
 

@@ -1,15 +1,29 @@
 import React from 'react'
 import Posts from '@/components/PostCard'
 import Link from 'next/link'
+import Image from 'next/image'
+// import AnimatedText from '@/components/Animation'
+import AnimatedHome from '@/components/Animation'
 
 const page = ({}) => {
   return (
-    <div className='p-6 flex flex-col'>
+    <div className='p-6 flex flex-col home'>
+          <div className='flex flex-col mt-8 py-6 justify-center mx-auto'>
+          {/* <Image
+                src="/give2.svg"
+                width={200}
+                height={200}
+                alt='logo'
+                className=''
+            />
+            <h2 className='text-3xl font-bold text-center'>Moments</h2> */}
+          <AnimatedHome/>
+          </div>
+            
 
-      <h1 className='font-bold text-2xl'>Home</h1>
-      <div className='flex m-4 p-6 gap-8'>
-        <Link href="/login">Login</Link>
-        <Link href="/register">Register</Link>
+      <div className='flex m-4 p-6 gap-8 text-white mx-auto text-2xl'>
+        <Link href="/login" className='underline'>Sign In</Link>
+        <Link href="/register" className='underline'>Sign Up</Link>
       </div>
 
     </div>

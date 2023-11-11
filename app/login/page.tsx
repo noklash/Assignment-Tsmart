@@ -3,23 +3,24 @@ import React, {useState, ChangeEvent, FormEvent} from 'react'
 import FormField from '@/components/FormField'
 import { loginUser } from '@/lib/actions';
 import { useRouter } from 'next/navigation';
-
+import Button from '@/components/Button';
 interface  FormState  {
     username: string;
     password: string;
-    // confirmPassword: string;
+    
 }
 
 type Props = {
     username: string;
     password: string;
-    // confirmPassword: string;
+    
 }
 
 
 const Login = ({username, password}: Props) => {
     const router = useRouter()
-    
+    const [submitting, setSubmitting] = useState<boolean>(false);
+    const type = "login"
     const [login, setLogin] = useState<FormState>({
         username: username || "",
         password: password || "",
@@ -32,11 +33,21 @@ const Login = ({username, password}: Props) => {
 
     const handleFormSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        const res = await loginUser(login.username, login.password)
-        if(res.email){
-            console.log(res.email)
-            router.push(`/${res.email}`) 
+        setSubmitting(true)
+
+        try {
+            const res = await loginUser(login.username, login.password)
+            if(res?.email){
+                console.log(res.email)
+                router.push(`/${res.email}`) 
+            }
+        }catch (error){
+            console.error
+            alert("Failed to login. Try again");
+        } finally {
+            setSubmitting(false)
         }
+        
     }
 
   return (
@@ -63,9 +74,13 @@ const Login = ({username, password}: Props) => {
 
 
 
-            <button className='text-white bg-red-700 px-5 py-3 my-6 rounded'>
-                Login
-            </button>
+<div className='flexStart w-full'>
+            <Button
+                title={submitting ? `${type === "login" ? "Logging in" : "Editing"}` : `${type === "login" ? "Login" : "Edit"}`}
+                type="submit"
+                submitting={submitting}
+                />
+       </div>
 
         </form>
     </div>

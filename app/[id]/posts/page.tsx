@@ -38,17 +38,19 @@ const page = ({ params, username, post, base64str }: Props) => {
   return (
     <div>
         <h1>Posts</h1>
-        {/* {
+        {
             posts.length > 0 &&
-            posts?.map(({ node }: {node: Post}) => {
-                <PostCard
-                    key={`${node?.username} + ${1}`}
-                    username={node?.username}
-                    base64str={node?.base64str}
-                    post={node?.post}
-                />
-            })
-        } */}
+            posts?.map(({ node }: {node: Post}) => (
+                <div className='my-4'>
+                    <PostCard
+                        key={`${node?.username} + ${1}`}
+                        username={node?.username}
+                        base64str={node?.base64str}
+                        post={node?.post}
+                    />
+                </div>
+            ))
+        }
     </div>
   )
 }

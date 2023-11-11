@@ -4,6 +4,7 @@ import { useState, useEffect, ChangeEvent, FormEvent } from "react"
 import { createPost, getPostsByUser } from '@/lib/actions';
 import FormField from '@/components/FormField';
 import Image from 'next/image';
+import Button from '@/components/Button';
 
 
 
@@ -27,15 +28,16 @@ interface Props {
 export default function Posts({params, post, base64str}: Props) {
   const router = useRouter();
   const realP = params.id
+  const type = "create"
   const username = realP.replace('%40', '@');
 
-//   const [posts, setPosts] = useState<Post[]>([]);
+  const [submitting, setSubmitting] = useState<boolean>(false);
   const [form, setForm] = useState<FormState>({
        post: post || "",
        base64str:  base64str || ""
   })
 
-//   console.log(form.base64str)
+
 
   const handleStateChange = (fieldName: keyof FormState, value: string) => {
     setForm((prevForm) => ({ ...prevForm, [fieldName]: value}))
@@ -60,24 +62,22 @@ export default function Posts({params, post, base64str}: Props) {
 
   const handleCreatePost = async ( e: FormEvent) => {
     e.preventDefault()
-    const result = await createPost(username, form.post, form.base64str);
-    
-    if(result){
-        router.push(`/${realP}/posts`)
+    setSubmitting(true)
+    try {
+        const result = await createPost(username, form.post, form.base64str);
+        if(result){
+            router.push(`/${realP}/posts`)
+        }
+    } catch (error){
+        console.error
+        alert("Failed to create post. Try again");
+    } finally {
+        setSubmitting(false)
     }
-    // Refresh the page to show the new post
-    // router.reload();
+    
   };
 
-//   useEffect(() => {
-//     async function fetchPosts() {
-//       const response = await getPostsByUser(router.query.email);
 
-//       setPosts(response.data);
-//     }
-
-//     fetchPosts();
-//   }, []);
 
   return (
     <div className='m-4 p-6'>
@@ -117,9 +117,13 @@ export default function Posts({params, post, base64str}: Props) {
             state={form.post}
             setState={(value) => handleStateChange("post", value)}
         />
-        <button className='my-4 py-4  text-white bg-blue-700 rounded w-full md:w-32'>
-            Create Post
-        </button>
+       <div className='flexStart w-full'>
+            <Button
+                title={submitting ? `${type === "create" ? "Creating" : "Editing"}` : `${type === "create" ? "Create" : "Edit"}`}
+                type="submit"
+                submitting={submitting}
+                />
+       </div>
       </form>
 
       {/* <ul>
