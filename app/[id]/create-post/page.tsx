@@ -20,12 +20,11 @@ type Props = {
   params: {
     id: string
   }
-
 }
 
 
 
-const  Posts = ({params, post, base64str}: Props)  => {
+const  PostCreate = ({params, post, base64str}: Props)  => {
   const router = useRouter();
   const realP = params.id
   const type = "create"
@@ -66,7 +65,7 @@ const  Posts = ({params, post, base64str}: Props)  => {
     try {
         const result = await createPost(username, form.post, form.base64str);
         if(result){
-            router.push(`/${realP}/posts`)
+            router.push(`/${realP}/PostCreate`)
         }
     } catch (error){
         console.error
@@ -130,4 +129,4 @@ const  Posts = ({params, post, base64str}: Props)  => {
   );
 }
 
-export default  Posts
+export default  PostCreate
