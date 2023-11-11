@@ -16,8 +16,8 @@ type FormState = {
 
 type Props = {
 //   username: string;
-  post: string;
-  base64str: string;
+  // post: string;
+  // base64str: string;
   params: {
     id: string
   }
@@ -26,7 +26,7 @@ type Props = {
 
 
 
-const  Page = ({params, post, base64str}: Props)  => {
+const  Page = ({params}: Props)  => {
   const router = useRouter();
   const realP = params.id
   const type = "create"
@@ -34,8 +34,8 @@ const  Page = ({params, post, base64str}: Props)  => {
 
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [form, setForm] = useState<FormState>({
-       post: post || "",
-       base64str:  base64str || ""
+       post:  "",
+       base64str:  ""
   })
 
 
