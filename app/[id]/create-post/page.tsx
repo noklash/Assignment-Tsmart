@@ -13,7 +13,7 @@ type FormState = {
     base64str: string;
 }
 
-interface Props {
+interface Props  {
 //   username: string;
   post: string;
   base64str: string;
@@ -25,7 +25,7 @@ interface Props {
 
 
 
-export default function Posts({params, post, base64str}: Props) {
+const  Posts = ({params, post, base64str}: Props)  => {
   const router = useRouter();
   const realP = params.id
   const type = "create"
@@ -137,3 +137,5 @@ export default function Posts({params, post, base64str}: Props) {
     </div>
   );
 }
+
+export default  Posts
