@@ -13,7 +13,7 @@ type FormState = {
     base64str: string;
 }
 
-interface Props  {
+type Props = {
 //   username: string;
   post: string;
   base64str: string;
@@ -126,14 +126,6 @@ const  Posts = ({params, post, base64str}: Props)  => {
        </div>
       </form>
 
-      {/* <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <h3>{post.post}</h3>
-            <img src={post.base64str} alt="" />
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 }
