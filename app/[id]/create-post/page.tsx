@@ -14,21 +14,18 @@ type FormState = {
     base64str: string;
 }
 
-// type Props = {
-//   params: {
-//     id: string;
-//   };
-// };
-type Props = {
-  params: Record<string, string>;
-};
+interface Props {
+  params: { id: string };
+}
 
 
 
 
-const  Page = ({ params }: Props)  => {
+
+const  Page = ({params}: Props)  => {
   const router = useRouter();
   const realP = params.id
+  console.log(realP)
   const type = "create"
   const username = realP.replace('%40', '@');
 
@@ -68,7 +65,7 @@ const  Page = ({ params }: Props)  => {
         const result = await createPost(username, form.post, form.base64str);
         if(result){
           
-            router.push(`/${realP}/Page`)
+            router.push(`/${realP}`)
         }
     } catch (error){
         console.error
