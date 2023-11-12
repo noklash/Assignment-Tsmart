@@ -82,7 +82,7 @@ const  Page = ({params}: Props)  => {
       {/* <form onSubmit={handleCreatePost}> */}
       <form className='my-2' onSubmit={handleCreatePost }>
 
-        <div className='flexStart form_image-container'>
+        <div className='flexStart form_image-container py-4'>
             <label htmlFor='postImage' className='flexCenter form_image-label'>
                 {!form.base64str && "choose an image"}
             </label>
@@ -92,14 +92,14 @@ const  Page = ({params}: Props)  => {
                 type='file'
                 accept='image/*'
                 required
-                className='form_image-input'
+                className='form_image-input '
                 onChange={(e) => handleChangeImage(e)}
             />
 
             { form.base64str && (
                 <Image
                     src={form?.base64str}
-                    className="sm:p-8 object-contain z-20" alt="image"
+                    className="sm:p-8 object-contain z-20 py-6" alt="image"
                     fill
                     />
             )}

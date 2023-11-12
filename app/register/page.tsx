@@ -8,6 +8,7 @@ import Button from '@/components/Button';
 interface  FormState  {
     username: string;
     password: string;
+    password2: string
 }
 
 // interface Props  {
@@ -22,6 +23,7 @@ const Page = () => {
     const [register, setRegister] = useState<FormState>({
         username:  "",
         password:  "",
+        password2:  ""
     })
 
     const router = useRouter()
@@ -33,12 +35,23 @@ const Page = () => {
     const handleFormSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setSubmitting(true)
+        // if(register.password !== register.password2){
+        //     alert("Passwords do not match")
+        // }else{
+
+        // }
         try {
-            const res =  await registerUser(register.username, register.password)
-            if(res.email){
-                console.log(res.email)
-                router.push(`/${res.email}`) 
+            if(register.password !== register.password2){
+                alert("Passwords do not match")
+                return
+            }else{
+                const res =  await registerUser(register.username, register.password)
+                if(res.email){
+                    console.log(res.email)
+                    router.push(`/${res.email}`) 
+                } 
             }
+            
         }catch (error){
             console.error
             alert("Failed to register. Try again");
@@ -67,6 +80,15 @@ const Page = () => {
                 title='Password'
                 state={register.password}
                 setState={(value) => handleStateChange("password", value)}
+
+            />
+
+            <FormField
+                type='password'
+                placeholder='Enter your password again'
+                title='Confirm Password'
+                state={register.password2}
+                setState={(value) => handleStateChange("password2", value)}
 
             />
 

@@ -27,9 +27,9 @@ function removeSubstring(str: string, substring: string) {
   const updatedUsername = removeSubstring(emailAddress, "@gmail.com");
 
   const moments = [
-                    {"username": "str", "post": "here's a caption1", "base64str": "/evening.jpeg"},
-                    {"username": "str", "post": "here's a caption2", "base64str": "/homebg.jpg"},
-                    {"username": "str", "post": "here's a caption3", "base64str": "/river.jpg"}
+                    {"username": "username1", "post": "here's caption 1 test", "base64str": "/evening.jpeg"},
+                    {"username": "username2", "post": "here's caption 2 test", "base64str": "/homebg.jpg"},
+                    {"username": "username3", "post": "here's caption 3 test", "base64str": "/river.jpg"}
 ]
 
 

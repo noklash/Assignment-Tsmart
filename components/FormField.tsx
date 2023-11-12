@@ -11,7 +11,7 @@ type Props = {
 const FormField = ({type, title, state, placeholder, setState}: Props) => {
   return (
     <div className="flexStart flex-col w-full gap-4 text-black mt-3">
-        <label className="w-full text-gray-100 ">{title}</label>
+        <label className="w-full text-gray-100 font-bold">{title}</label>
             <input
                 type={type || "text"}
                 placeholder={placeholder}

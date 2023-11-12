@@ -7,8 +7,8 @@ const Navbar: any = () => {
         <div className='mr-auto'>
             <Image
                 src="/give2.svg"
-                width={60}
-                height={60}
+                width={50}
+                height={50}
                 alt='logo'
                 className=''
             />
@@ -16,8 +16,8 @@ const Navbar: any = () => {
         <div>
             <Image
                 src="/userImage.png"
-                width={60}
-                height={60}
+                width={50}
+                height={50}
                 alt='user image'
                 className='rounded-full'
             />
