@@ -10,7 +10,7 @@ interface  FormState  {
     password: string;
 }
 
-type Props = {
+interface Props  {
     username: string;
     password: string;
 }
