@@ -4,6 +4,7 @@ import FormField from '@/components/FormField'
 import { registerUser } from '@/lib/actions';
 import { useRouter } from 'next/navigation';
 import Button from '@/components/Button';
+import Modal from '@/components/Modal';
 
 interface  FormState  {
     username: string;
@@ -51,48 +52,50 @@ const Page = () => {
     }
 
   return (
-    <div className='mx-4 p-4'>
-        <h2 className='font-bold text-3xl my-4 '>Register</h2>
-        <form onSubmit={handleFormSubmit}>
-            <FormField
-                type='text'
-                placeholder='johndoe@gmail.com'
-                title='Email'
-                state={register.username}
-                setState={(value) => handleStateChange("username", value)}
+    <Modal>
+        <div className='mx-4 p-4'>
+            <h2 className='font-bold text-3xl my-4 '>Register</h2>
+            <form onSubmit={handleFormSubmit}>
+                <FormField
+                    type='text'
+                    placeholder='johndoe@gmail.com'
+                    title='Email'
+                    state={register.username}
+                    setState={(value) => handleStateChange("username", value)}
 
-            />
-
-            <FormField
-                type='password'
-                placeholder='Enter a secure password'
-                title='Password'
-                state={register.password}
-                setState={(value) => handleStateChange("password", value)}
-
-            />
-
-            <FormField
-                type='password'
-                placeholder='Enter your password again'
-                title='Confirm Password'
-                state={register.password2}
-                setState={(value) => handleStateChange("password2", value)}
-
-            />
-
-
-
-        <div className='flexStart w-full'>
-            <Button
-                title={submitting ? `${type === "register" ? "Registering" : "Editing"}` : `${type === "register" ? "Register" : "Edit"}`}
-                type="submit"
-                submitting={submitting}
                 />
-       </div>
 
-        </form>
-    </div>
+                <FormField
+                    type='password'
+                    placeholder='Enter a secure password'
+                    title='Password'
+                    state={register.password}
+                    setState={(value) => handleStateChange("password", value)}
+
+                />
+
+                <FormField
+                    type='password'
+                    placeholder='Enter your password again'
+                    title='Confirm Password'
+                    state={register.password2}
+                    setState={(value) => handleStateChange("password2", value)}
+
+                />
+
+
+
+            <div className='flexStart w-full'>
+                <Button
+                    title={submitting ? `${type === "register" ? "Registering" : "Editing"}` : `${type === "register" ? "Register" : "Edit"}`}
+                    type="submit"
+                    submitting={submitting}
+                    />
+        </div>
+
+            </form>
+        </div>
+    </Modal>
   )
 }
 

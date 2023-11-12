@@ -4,7 +4,7 @@ import AnimatedHome from '@/components/Animation'
 
 const Page = ({}) => {
   return (
-    <div className='p-6 flex flex-col home'>
+    <div className='p-6 flex flex-col home overflow-y-clip'>
           <div className='flex flex-col mt-8 py-6 justify-center mx-auto'>
         
             <AnimatedHome/>

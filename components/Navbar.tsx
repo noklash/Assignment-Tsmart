@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Navbar: any = () => {
   return (
-    <nav className='flex py-4 mx-6'>
+    <nav className='flex py-4 mx-6 '>
         <div className='mr-auto'>
             <Image
                 src="/give2.svg"

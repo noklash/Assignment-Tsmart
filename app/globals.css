@@ -75,12 +75,18 @@ body {
   background-position: center;
   opacity: 0.85;
   height: 100vh;
-  overflow-y: hidden;
 }
 
 .btnn{
   width: 6rem;
   height:2.15rem;
   border: 2px solid whitesmoke;
+  border-radius: 3rem;
+}
+
+.btn-post{
+  width: 8rem;
+  height:2.15rem;
+  border: 1px solid black;
   border-radius: 3rem;
 }

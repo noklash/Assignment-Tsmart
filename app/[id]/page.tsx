@@ -29,14 +29,14 @@ function removeSubstring(str: string, substring: string) {
   const moments = [
                     {"username": "username1", "post": "here's caption 1 test", "base64str": "/evening.jpeg"},
                     {"username": "username2", "post": "here's caption 2 test", "base64str": "/homebg.jpg"},
-                    {"username": "username3", "post": "here's caption 3 test", "base64str": "/river.jpg"}
+                    {"username": "username3", "post": "here's caption 3 test", "base64str": "/givelogo.png"}
 ]
 
 
   return (
     <div className='flex flex-col m-4'>
 
-        <Link href={`/${realP}/create-post`} className="capitalize border-black text-black  w-32 underline"> new moment</Link>
+        <Link href={`/${realP}/create-post`} className="btn-post hover:bg-black hover:text-white text-center pt-1 font-bold my-6">create post</Link>
         <h3 className="capitalize text-2xl text center">Here&apos;s your moment <span className="font-bold text-2xl">{updatedUsername}</span></h3>
 
         <section className="md:flex gap-8">
