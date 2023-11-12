@@ -11,12 +11,6 @@ interface  FormState  {
     password2: string
 }
 
-// interface Props  {
-//     username: string;
-//     password: string;
-// }
-
-// {username, password}: Props
 const Page = () => {
     const type = "register"
     const [submitting, setSubmitting] = useState<boolean>(false);
@@ -35,22 +29,17 @@ const Page = () => {
     const handleFormSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setSubmitting(true)
-        // if(register.password !== register.password2){
-        //     alert("Passwords do not match")
-        // }else{
-
-        // }
         try {
-            if(register.password !== register.password2){
-                alert("Passwords do not match")
-                return
-            }else{
-                const res =  await registerUser(register.username, register.password)
-                if(res.email){
-                    console.log(res.email)
-                    router.push(`/${res.email}`) 
-                } 
-            }
+                if(register.password !== register.password2){
+                    alert("Passwords do not match")
+                    return
+                }else{
+                    const res =  await registerUser(register.username, register.password)
+                    if(res.email){
+                        console.log(res.email)
+                        router.push(`/${res.email}`) 
+                    } 
+                }
             
         }catch (error){
             console.error

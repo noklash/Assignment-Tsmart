@@ -76,3 +76,10 @@ body {
   opacity: 0.85;
   height: 100vh;
 }
+
+.btnn{
+  width: 6rem;
+  height:2.15rem;
+  border: 2px solid whitesmoke;
+  border-radius: 3rem;
+}

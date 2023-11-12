@@ -10,12 +10,6 @@ interface  FormState  {
     
 }
 
-// interface Props {
-//     username: string;
-//     password: string;
-    
-// }
-// {username, password}: Props
 
 
 const Login = () => {

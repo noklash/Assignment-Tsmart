@@ -78,8 +78,8 @@ const  Page = ({params}: Props)  => {
 
   return (
     <div className='m-4 p-6'>
-        <h1 className='text-3xl font-bold'> Create Post</h1>
-      {/* <form onSubmit={handleCreatePost}> */}
+      <h1 className='text-3xl font-bold'> Create Post</h1>
+  
       <form className='my-2' onSubmit={handleCreatePost }>
 
         <div className='flexStart form_image-container py-4'>
