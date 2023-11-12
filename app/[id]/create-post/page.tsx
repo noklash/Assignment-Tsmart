@@ -14,19 +14,19 @@ type FormState = {
     base64str: string;
 }
 
+// type Props = {
+//   params: {
+//     id: string;
+//   };
+// };
 type Props = {
-//   username: string;
-  // post: string;
-  // base64str: string;
-  params: {
-    id: string
-  }
-}
+  params: Record<string, string>;
+};
 
 
 
 
-const  Page = ({params}: Props)  => {
+const  Page = ({ params }: Props)  => {
   const router = useRouter();
   const realP = params.id
   const type = "create"
@@ -78,8 +78,6 @@ const  Page = ({params}: Props)  => {
     }
     
   };
-
-
 
   return (
     <div className='m-4 p-6'>
@@ -133,4 +131,4 @@ const  Page = ({params}: Props)  => {
 }
 
 
-export default  Page
+export default Page;
