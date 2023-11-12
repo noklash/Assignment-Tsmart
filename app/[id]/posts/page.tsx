@@ -3,13 +3,11 @@ import { useState, useEffect } from 'react'
 import { getPostsByUser } from '@/lib/actions'
 import PostCard from '@/components/PostCard'
 
-type Props = {
+interface Props {
     params: {
         id: string
     }
-    username: string;
-    post: string;
-    base64str: string;
+  
 }
 
 interface Post {
@@ -19,7 +17,7 @@ interface Post {
   
   }
 
-const Page = ({ params, username, post, base64str }: Props) => {
+const Page = ({ params }: Props) => {
     const realP = params.id
     const user = realP.replace('%40', '@');
 
