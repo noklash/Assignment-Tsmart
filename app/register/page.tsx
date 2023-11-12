@@ -10,17 +10,18 @@ interface  FormState  {
     password: string;
 }
 
-interface Props  {
-    username: string;
-    password: string;
-}
+// interface Props  {
+//     username: string;
+//     password: string;
+// }
 
-const Page = ({username, password}: Props) => {
+// {username, password}: Props
+const Page = () => {
     const type = "register"
     const [submitting, setSubmitting] = useState<boolean>(false);
     const [register, setRegister] = useState<FormState>({
-        username: username || "",
-        password: password || "",
+        username:  "",
+        password:  "",
     })
 
     const router = useRouter()

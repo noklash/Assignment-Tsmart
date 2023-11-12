@@ -10,20 +10,21 @@ interface  FormState  {
     
 }
 
-interface Props {
-    username: string;
-    password: string;
+// interface Props {
+//     username: string;
+//     password: string;
     
-}
+// }
+// {username, password}: Props
 
 
-const Login = ({username, password}: Props) => {
+const Login = () => {
     const router = useRouter()
     const [submitting, setSubmitting] = useState<boolean>(false);
     const type = "login"
     const [login, setLogin] = useState<FormState>({
-        username: username || "",
-        password: password || "",
+        username:  "",
+        password:  "",
         
     })
 
