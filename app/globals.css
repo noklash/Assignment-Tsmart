@@ -74,7 +74,7 @@ body {
   background-size: cover;
   background-position: center;
   opacity: 0.85;
-  height: 100vh;
+  height: 100dvh;
 }
 
 .btnn{
@@ -89,4 +89,8 @@ body {
   height:2.15rem;
   border: 1px solid black;
   border-radius: 3rem;
+}
+.card{
+  width: 19rem;
+  height: 25rem;
 }

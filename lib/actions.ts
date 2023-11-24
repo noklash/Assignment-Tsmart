@@ -7,26 +7,34 @@ export type PostForm = {
 
 
 
-export async function loginUser(username: string, password: string) {
-  const response = await axios.post('https://assignment-api-spxd.onrender.com/api/login', {
-    username,
-    password,
-  });
+// export async function loginUser(username: string, password: string) {
+//   const response = await axios.post('https://assignment-api-spxd.onrender.com/api/login', {
+//     username,
+//     password,
+//   });
 
- console.log(response)
-  if(response.status === 200){
-    const session = {
-        email: username
-    }
+ 
+// }
+
+export const loginUser = async (username: string, password:string) => {
+  
+    const response = await fetch('https://assignment-api-spxd.onrender.com/api/login', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    });
     
-    return session;
-  }
-}
+    console.log(response.status)
+    return response.status
+};
 
 
 
 export const registerUser = async (username: string, password:string) => {
-    try {
+    // try {
       const response = await fetch('https://assignment-api-spxd.onrender.com/api/register', {
         method: 'POST',
         mode: 'no-cors',
@@ -36,20 +44,22 @@ export const registerUser = async (username: string, password:string) => {
         body: JSON.stringify({ username, password }),
       });
   
-      if (response.ok) {
-        const data = await response.json();
-        const session = {
-            email: username
-        }
+    //   if (response.ok ) {
+    //     const data = await response.json();
+    //     const session = {
+    //         email: username
+    //     }
         
-        return session; // or handle the response as needed
-      } else {
-        throw new Error('Registration failed');
-      }
-    } catch (error:any) {
-      console.error('Error during registration:', error.message);
-      throw error;
-    }
+    //     return session; // or handle the response as needed
+    //   } else {
+    //     throw new Error('Registration failed');
+    //   }
+    // } catch (error:any) {
+    //   console.error('Error during registration:', error.message);
+    //   throw error;
+    // }
+    console.log(response)
+    return response
   };
 
 export async function createPost(username: string, post: string, base64str: string) {

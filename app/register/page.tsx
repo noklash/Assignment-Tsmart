@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
 
+
 interface  FormState  {
     username: string;
     password: string;
@@ -36,9 +37,9 @@ const Page = () => {
                     return
                 }else{
                     const res =  await registerUser(register.username, register.password)
-                    if(res.email){
-                        console.log(res.email)
-                        router.push(`/${res.email}`) 
+                    if(res.ok){
+                        console.log(register.username)
+                        router.push(`/${register.username}`) 
                     } 
                 }
             

@@ -33,10 +33,12 @@ const Login = () => {
 
         try {
             const res = await loginUser(login.username, login.password)
-            if(res?.email){
-                console.log(res.email)
-                router.push(`/${res.email}`) 
+            if(res){
+                console.log(res)
+                router.push(`/${login.username}`) 
             }
+            // return;
+            router.push(`/${login.username}`) 
         }catch (error){
             console.error
             alert("Failed to login. Try again");

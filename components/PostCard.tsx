@@ -18,7 +18,7 @@ import Link from 'next/link';
 
 const PostCard = ({username, post, base64str}: Post) => {
   return (
-    <div className='flexCenter  flex-col rounded-2xl drop-shadow text-black shadow-lg shadow-black'>
+    <div className='  flex-col rounded-2xl drop-shadow text-black shadow-lg shadow-black card mx-auto'>
       <Link href="#" className='flexCenter group relative w-full flex flex-col'>
           <div className='flex p-2'>
             <Image 
